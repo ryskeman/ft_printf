@@ -1,22 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printf_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fernafer <fernafer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fernafer <fernafer@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/12 11:52:27 by fernafer          #+#    #+#             */
-/*   Updated: 2025/05/14 12:14:56 by fernando         ###   ########.fr       */
+/*   Created: 2025/05/14 12:03:26 by fernafer          #+#    #+#             */
+/*   Updated: 2025/05/14 12:04:27 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-
-# include <stdarg.h>
-# include <unistd.h>
-# include <stdlib.h>
-
-int	ft_printf(const char *format, ...);
-
-#endif
