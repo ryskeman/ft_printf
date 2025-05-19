@@ -6,7 +6,7 @@
 /*   By: fernafer <fernafer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 11:52:27 by fernafer          #+#    #+#             */
-/*   Updated: 2025/05/16 13:50:04 by fernafer         ###   ########.fr       */
+/*   Updated: 2025/05/19 18:55:26 by fernafer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 
 int				ft_printf(const char *format, ...);
 int				ft_putchar_fd_r(int fd, char c, int *count);
-int				ft_print_char(va_list *va, int *counter);
-int				ft_print_string(va_list *va, int *counter);
-const char		*ft_scan(const char *str, va_list *va, int *counter);
+int				ft_print_char(va_list *va, int *counter, int fd);
+int				ft_print_string(va_list *va, int *counter, int fd);
+const char		*ft_scan(const char *str, va_list *va, int *counter, int fd);
 
 #endif
