@@ -6,46 +6,42 @@
 /*   By: fernafer <fernafer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 11:40:18 by fernafer          #+#    #+#             */
-/*   Updated: 2025/05/19 19:00:20 by fernafer         ###   ########.fr       */
+/*   Updated: 2025/05/20 19:26:01 by fernafer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putchar_fd_r(int fd, char c, int *count)
+int	ft_putchar_fd_r(char c)
 {
-	if (write(fd, &c, 1) == 1)
-	{
-		(*count)++;
+	if (write(1, &c, 1) == 1)
 		return (1);
-	}
 	return (-1);
 }
 
-const char	*ft_scan(const char *str, va_list *va, int *counter, int fd)
+int	ft_scan(const char *str, va_list va)
 {
+	int	count;
+
 	str++;
+	count = 0;
 	if (*str == 'c')
-		ft_print_char(*va, counter, fd);
+		count += ft_print_char(va_arg(va, int));
 	else if (*str == 's')
-		ft_print_string(*va, counter, fd);
+		count += ft_print_string(va_arg(va, char *));
 	else if (*str == 'p')
-		ft_print_ptr(*va, counter, fd);
-	else if (*str == 'i' || *str == 'd')
-		ft_print_int(*va, counter, fd);
+		count += ft_print_ptr(va_arg(va, void *));
+	/*else if (*str == 'i' || *str == 'd')
+		count += ft_print_int(va_arg(va, int));
 	else if (*str == 'u')
-		ft_print_uint(*va, counter, fd);
+		count += ft_print_uint(va_arg(va, unsigned int));
 	else if (*str == 'x')
-		ft_print_hex(*va, 0, counter, fd);
+		count += ft_print_hex(va_arg(va, unsigned int), 0);
 	else if (*str == 'X')
-		ft_print_hex(*va, 1, counter, fd);
+		count += ft_print_hex(va_arg(va, unsigned int), 1);
 	else if (*str == '%')
-		ft_print_percent(counter, fd);
-	else if (*str != '\0')
-		ft_print_invalid(*str, counter, fd);
-	else
-		return (NULL);
-	return (++str);
+		count += ft_print_percent();*/
+	return (count);
 }
 
 int	ft_printf(const char *str, ...)
@@ -61,7 +57,7 @@ int	ft_printf(const char *str, ...)
 	{
 		if (*str == '%')
 		{
-			str = ft_scan(str, &vargs, &printed, 1);
+			printed += ft_scan(str, vargs);
 			if (!str)
 			{
 				va_end(vargs);
@@ -69,7 +65,7 @@ int	ft_printf(const char *str, ...)
 			}
 		}
 		else
-			ft_putchar_fd_r(1, *str, &printed);
+			ft_putchar_fd_r(*str);
 		str++;
 	}
 	va_end(vargs);

@@ -1,27 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_formats_ints.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fernafer <fernafer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/12 11:52:27 by fernafer          #+#    #+#             */
-/*   Updated: 2025/05/20 19:01:38 by fernafer         ###   ########.fr       */
+/*   Created: 2025/05/20 19:35:19 by fernafer          #+#    #+#             */
+/*   Updated: 2025/05/20 19:35:20 by fernafer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-
-# include <stdarg.h>
-# include <stdlib.h>
-# include <unistd.h>
-
-int			ft_printf(const char *format, ...);
-int			ft_putchar_fd_r(char c);
-int			ft_print_char(char c);
-int			ft_print_string(char *str);
-int			ft_print_ptr(void *ptr);
-int			ft_scan(const char *str, va_list va);
-
-#endif

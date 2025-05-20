@@ -6,7 +6,7 @@
 #    By: fernafer <fernafer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/12 11:56:21 by fernafer          #+#    #+#              #
-#    Updated: 2025/05/12 13:48:54 by fernafer         ###   ########.fr        #
+#    Updated: 2025/05/20 19:38:29 by fernafer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,10 @@ CFLAGS = -Wall -Wextra -Werror
 CC = cc
 AR = ar rcs
 
-SRCS = ft_printf.c
+SRCS = ft_printf.c \
+	   ft_formats_chars.c \
+	   ft_formats_ints.c \
+	   ft_formats_hex.c \
 
 OBJS = $(SRCS:.c=.o)
 

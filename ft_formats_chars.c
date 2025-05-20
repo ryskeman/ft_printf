@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_formats_chars.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fernafer <fernafer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/12 11:52:27 by fernafer          #+#    #+#             */
-/*   Updated: 2025/05/20 19:01:38 by fernafer         ###   ########.fr       */
+/*   Created: 2025/05/16 13:29:24 by fernafer          #+#    #+#             */
+/*   Updated: 2025/05/20 18:50:15 by fernafer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <stdarg.h>
-# include <stdlib.h>
-# include <unistd.h>
+int	ft_print_char(char c)
+{
+	ft_putchar_fd_r(c);
+	return (1);
+}
 
-int			ft_printf(const char *format, ...);
-int			ft_putchar_fd_r(char c);
-int			ft_print_char(char c);
-int			ft_print_string(char *str);
-int			ft_print_ptr(void *ptr);
-int			ft_scan(const char *str, va_list va);
+int	ft_print_string(char *str)
+{
+	int		i;
 
-#endif
+	i = 0;
+	if (!str)
+		str = "(null)";
+	while (str[i])
+	{
+		ft_putchar_fd_r(str[i]);
+		i++;
+	}
+	return (i);
+}
