@@ -6,17 +6,15 @@
 /*   By: fernafer <fernafer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 11:40:18 by fernafer          #+#    #+#             */
-/*   Updated: 2025/05/20 19:26:01 by fernafer         ###   ########.fr       */
+/*   Updated: 2025/05/21 18:19:29 by fernafer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putchar_fd_r(char c)
+int	ft_print_percent(void)
 {
-	if (write(1, &c, 1) == 1)
-		return (1);
-	return (-1);
+	return (ft_putchar_fd_r('%'));
 }
 
 int	ft_scan(const char *str, va_list va)
@@ -31,7 +29,7 @@ int	ft_scan(const char *str, va_list va)
 		count += ft_print_string(va_arg(va, char *));
 	else if (*str == 'p')
 		count += ft_print_ptr(va_arg(va, void *));
-	/*else if (*str == 'i' || *str == 'd')
+	else if (*str == 'i' || *str == 'd')
 		count += ft_print_int(va_arg(va, int));
 	else if (*str == 'u')
 		count += ft_print_uint(va_arg(va, unsigned int));
@@ -40,7 +38,7 @@ int	ft_scan(const char *str, va_list va)
 	else if (*str == 'X')
 		count += ft_print_hex(va_arg(va, unsigned int), 1);
 	else if (*str == '%')
-		count += ft_print_percent();*/
+		count += ft_print_percent();
 	return (count);
 }
 

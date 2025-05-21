@@ -1,16 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_formats_chars.c                                       :+:      :+:    :+:   */
+/*   ft_formats_chars.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fernafer <fernafer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 13:29:24 by fernafer          #+#    #+#             */
-/*   Updated: 2025/05/20 18:50:15 by fernafer         ###   ########.fr       */
+/*   Updated: 2025/05/21 17:11:05 by fernafer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+
+int	ft_putchar_fd_r(char c)
+{
+	if (write(1, &c, 1) == 1)
+		return (1);
+	return (-1);
+}
 
 int	ft_print_char(char c)
 {
@@ -20,7 +28,7 @@ int	ft_print_char(char c)
 
 int	ft_print_string(char *str)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	if (!str)
