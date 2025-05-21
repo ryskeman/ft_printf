@@ -6,7 +6,7 @@
 /*   By: fernafer <fernafer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 19:35:19 by fernafer          #+#    #+#             */
-/*   Updated: 2025/05/21 16:32:40 by fernafer         ###   ########.fr       */
+/*   Updated: 2025/05/21 19:09:12 by fernafer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	ft_print_int(int num)
 	if (num == -2147483648)
 	{
 		write(1, "-2147483648", 11);
-		return (count);
+		return (11);
 	}
 	if (num < 0)
 	{

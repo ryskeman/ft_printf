@@ -6,7 +6,7 @@
 /*   By: fernafer <fernafer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 11:40:18 by fernafer          #+#    #+#             */
-/*   Updated: 2025/05/21 18:19:29 by fernafer         ###   ########.fr       */
+/*   Updated: 2025/05/21 19:20:41 by fernafer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int	ft_scan(const char *str, va_list va)
 {
 	int	count;
 
-	str++;
 	count = 0;
 	if (*str == 'c')
 		count += ft_print_char(va_arg(va, int));
@@ -55,15 +54,11 @@ int	ft_printf(const char *str, ...)
 	{
 		if (*str == '%')
 		{
+			str++;
 			printed += ft_scan(str, vargs);
-			if (!str)
-			{
-				va_end(vargs);
-				return (-1);
-			}
 		}
 		else
-			ft_putchar_fd_r(*str);
+			printed += ft_putchar_fd_r(*str);
 		str++;
 	}
 	va_end(vargs);

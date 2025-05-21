@@ -6,7 +6,7 @@
 /*   By: fernafer <fernafer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 19:35:43 by fernafer          #+#    #+#             */
-/*   Updated: 2025/05/21 18:20:01 by fernafer         ###   ########.fr       */
+/*   Updated: 2025/05/21 20:09:29 by fernafer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,17 @@ int	ft_print_ptr(void *ptr)
 	int	count;
 
 	count = 0;
-	count += ft_putchar_fd_r('0');
-	count += ft_putchar_fd_r('x');
 	if (ptr == NULL)
 	{
-		count += ft_putchar_fd_r('0');
+		count += ft_putchar_fd_r('(');
+		count += ft_putchar_fd_r('n');
+		count += ft_putchar_fd_r('i');
+		count += ft_putchar_fd_r('l');
+		count += ft_putchar_fd_r(')');
 		return (count);
 	}
+	count += ft_putchar_fd_r('0');
+	count += ft_putchar_fd_r('x');
 	count += ft_putnbr_base_r((unsigned long long)ptr, "0123456789abcdef");
 	return (count);
 }
