@@ -6,11 +6,30 @@
 /*   By: fernafer <fernafer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 19:35:43 by fernafer          #+#    #+#             */
-/*   Updated: 2025/05/21 20:09:29 by fernafer         ###   ########.fr       */
+/*   Updated: 2025/05/22 16:53:24 by fernafer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int	ft_putnbr_base_r(unsigned long long n, char *base)
+{
+	int	len;
+	int	printed;
+
+	len = 0;
+	printed = 1;
+	while (base[len])
+		len++;
+	if (n >= (unsigned long long)len)
+	{
+		printed += ft_putnbr_base_r(n / len, base);
+		ft_putchar_fd_r(base[n % len]);
+	}
+	else
+		ft_putchar_fd_r(base[n % len]);
+	return (printed);
+}
 
 int	ft_print_ptr(void *ptr)
 {
@@ -19,12 +38,8 @@ int	ft_print_ptr(void *ptr)
 	count = 0;
 	if (ptr == NULL)
 	{
-		count += ft_putchar_fd_r('(');
-		count += ft_putchar_fd_r('n');
-		count += ft_putchar_fd_r('i');
-		count += ft_putchar_fd_r('l');
-		count += ft_putchar_fd_r(')');
-		return (count);
+		write(1, "(nil)", 5);
+		return (5);
 	}
 	count += ft_putchar_fd_r('0');
 	count += ft_putchar_fd_r('x');

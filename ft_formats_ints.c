@@ -6,30 +6,11 @@
 /*   By: fernafer <fernafer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 19:35:19 by fernafer          #+#    #+#             */
-/*   Updated: 2025/05/21 19:09:12 by fernafer         ###   ########.fr       */
+/*   Updated: 2025/05/22 16:53:12 by fernafer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-int	ft_putnbr_base_r(unsigned long long n, char *base)
-{
-	int	len;
-	int	printed;
-
-	len = 0;
-	printed = 1;
-	while (base[len])
-		len++;
-	if (n >= (unsigned long long)len)
-	{
-		printed += ft_putnbr_base_r(n / len, base);
-		ft_putchar_fd_r(base[n % len]);
-	}
-	else
-		ft_putchar_fd_r(base[n % len]);
-	return (printed);
-}
 
 int	ft_print_int(int num)
 {
